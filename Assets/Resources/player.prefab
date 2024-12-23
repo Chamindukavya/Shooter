@@ -479,7 +479,7 @@ MonoBehaviour:
   walkSpeed: 4
   sprint: 14
   maxVelocityChange: 10
-  jump: 5
+  jump: 7
   airControl: 0.5
 --- !u!54 &621891241088489360
 Rigidbody:
@@ -612,6 +612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  isLocalPlayer: 0
   healthText: {fileID: 3017767228574683758}
 --- !u!1001 &1104696164888015981
 PrefabInstance:
@@ -721,6 +722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f1abfa286a875447a70c9863dbc0c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swayClamp: 2
+  smoothing: 3
 --- !u!4 &638968204741284742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 970f3e7fad46b584fb1303b3bed63031, type: 3}

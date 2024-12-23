@@ -5,14 +5,19 @@ using Photon.Pun;
 
 public class RoomManager : MonoBehaviourPunCallbacks
 {
+
+    public static RoomManager instance;
     public GameObject player;
     [Space]
     public Transform spawnPoint;
-
-
     [Space]
     public GameObject roomCam; //for loading screen
   
+
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         Debug.Log("Connecting to server...");
@@ -44,9 +49,19 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         //set loading screen to false
         roomCam.SetActive(false);
-        
+
+        GameObject _player = PhotonNetwork.Instantiate(player.name, spawnPoint.position, Quaternion.identity);
+        _player.GetComponent<PlayerSetup>().isLocalPlayer();
+        _player.GetComponent<Health>().isLocalPlayer = true;
+
+        //for above three lines you can call RespawnPlayer() method also
+    }
+
+    public void RespawnPlayer(){
         GameObject _player = PhotonNetwork.Instantiate(player.name, spawnPoint.position, Quaternion.identity);
 
         _player.GetComponent<PlayerSetup>().isLocalPlayer();
+        _player.GetComponent<Health>().isLocalPlayer = true;
+        
     }
 }

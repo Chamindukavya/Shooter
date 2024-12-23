@@ -5,10 +5,10 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
 
-    public float walkSpeed = 8f;
+    public float walkSpeed = 10f;
     public float sprint = 14f;
     public float maxVelocityChange = 10.0f;
-    public float jump = 5f;
+    public float jump = 7f;
     public float airControl = 0.5f;
 
 
