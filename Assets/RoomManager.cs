@@ -38,5 +38,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         base.OnJoinedRoom();
         Debug.Log("Joined room.");
         GameObject _player = PhotonNetwork.Instantiate(player.name, spawnPoint.position, Quaternion.identity);
+
+        _player.GetComponent<PlayerSetup>().isLocalPlayer();
     }
 }
