@@ -8,7 +8,11 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public GameObject player;
     [Space]
     public Transform spawnPoint;
-    // Start is called before the first frame update
+
+
+    [Space]
+    public GameObject roomCam; //for loading screen
+  
     void Start()
     {
         Debug.Log("Connecting to server...");
@@ -37,6 +41,10 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
         Debug.Log("Joined room.");
+
+        //set loading screen to false
+        roomCam.SetActive(false);
+        
         GameObject _player = PhotonNetwork.Instantiate(player.name, spawnPoint.position, Quaternion.identity);
 
         _player.GetComponent<PlayerSetup>().isLocalPlayer();
